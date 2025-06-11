@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Section Finder</title>
+  <style>
+    body { font-family: Arial; margin: 50px; }
+    input { padding: 8px; width: 300px; }
+    #result { margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h2>Search Your Name</h2>
+  <input type="text" id="searchBox" placeholder="Enter your name..." oninput="findSection()">
+  <div id="result"></div>
+
+  <script>
+    const students = {
+      "Almonte Kevin James": "Grade 11 - Aristotle",
+      "Apura Lourence": "Grade 11 - Aristotle",
+      "Baang Kent Nathaniele": "Grade 11 - Aristotle",
+      "Bacon Denielle Jake": "Grade 11 - Aristotle",
+      "Dayanan Cristof": "Grade 11 - Aristotle",
+      "Fernandez John Mark": "Grade 11 - Aristotle",
+      "Gako Christian": "Grade 11 - Aristotle",
+      "Irona Dave": "Grade 11 - Aristotle",
+      "Lauron Christian": "Grade 11 - Aristotle",
+      "Lausa BB Jenboy": "Grade 11 - Aristotle",
+      "Lu-ang Richard Dems": "Grade 11 - Aristotle",
+      "Pantilgan Jackris": "Grade 11 - Aristotle",
+      "Remo Criss Michol": "Grade 11 - Aristotle",
+      "Satinitigan June Vincent": "Grade 11 - Aristotle",
+      "Tangaro Negro Patrick": "Grade 11 - Aristotle",
+      "Tumulak Kienneth": "Grade 11 - Aristotle",
+      "Ygona Ansel": "Grade 11 - Aristotle",
+      "Amistad Mary Cris": "Grade 11 - Aristotle",
+      "Cabungcal Nechel Mae": "Grade 11 - Aristotle",
+      "Cabungcal Krisha Marie": "Grade 11 - Aristotle",
+      "Dela Cerna Samantha": "Grade 11 - Aristotle",
+      "Enad Sweet Kiel": "Grade 11 - Aristotle",
+      "Erezo Kristel": "Grade 11 - Aristotle",
+      "Espinosa Angelie": "Grade 11 - Aristotle",
+      "Larrobis Glyza Mar": "Grade 11 - Aristotle",
+      "Lauron Shane": "Grade 11 - Aristotle",
+      "Legarte Jhilia Mie": "Grade 11 - Aristotle",
+      "Liniojan Beverly": "Grade 11 - Aristotle",
+      "Mortifero Shane": "Grade 11 - Aristotle",
+      "Navarro Chiecky Jayne": "Grade 11 - Aristotle",
+      "Naveo Maria Ivonne": "Grade 11 - Aristotle",
+      "Navoa Kisha Mae": "Grade 11 - Aristotle",
+      "Pansan Fhebe Gail": "Grade 11 - Aristotle",
+      "Parame Kylla": "Grade 11 - Aristotle",
+      "Rudila Zairra": "Grade 11 - Aristotle",
+      "Sabala Rhia Madjih": "Grade 11 - Aristotle",
+      "Tangaro Ella Mae": "Grade 11 - Aristotle"
+    };
+
+    function findSection() {
+      const query = document.getElementById("searchBox").value.trim().toLowerCase();
+      const resultDiv = document.getElementById("result");
+      let found = false;
+
+      for (const name in students) {
+        if (name.toLowerCase().includes(query) && query !== "") {
+          resultDiv.innerHTML = `<strong>${name}</strong> is in <strong>${students[name]}</strong>`;
+          found = true;
+          break;
+        }
+      }
+
+      if (!found && query !== "") {
+        resultDiv.innerHTML = "Student not found.";
+      } else if (query === "") {
+        resultDiv.innerHTML = "";
+      }
+    }
+  </script>
+</body>
+</html>
